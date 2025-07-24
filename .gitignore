@@ -10,6 +10,7 @@
 # Visual Studio Code
 .vscode/
 # emacs/vim
+bin/
 GPATH
 GRTAGS
 GTAGS
