@@ -8,13 +8,12 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
 	github.com/omec-project/aper v1.3.1
-	github.com/omec-project/config5g v1.6.2
 	github.com/omec-project/nas v1.6.0
 	github.com/omec-project/ngap v1.5.0
-	github.com/omec-project/openapi v1.5.0
+	github.com/omec-project/openapi v1.6.2
 	github.com/omec-project/util v1.4.0
 	github.com/pkg/errors v0.9.1
-	github.com/prometheus/client_golang v1.22.0
+	github.com/prometheus/client_golang v1.23.0
 	github.com/segmentio/kafka-go v0.4.48
 	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli/v3 v3.3.8
@@ -71,9 +70,9 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20221212215047-62379fc7944b // indirect
-	github.com/prometheus/client_model v0.6.1 // indirect
-	github.com/prometheus/common v0.62.0 // indirect
-	github.com/prometheus/procfs v0.15.1 // indirect
+	github.com/prometheus/client_model v0.6.2 // indirect
+	github.com/prometheus/common v0.65.0 // indirect
+	github.com/prometheus/procfs v0.16.1 // indirect
 	github.com/shirou/gopsutil/v3 v3.23.10 // indirect
 	github.com/testcontainers/testcontainers-go v0.26.0 // indirect
 	github.com/thakurajayL/go-ipam v0.0.5-dev // indirect
@@ -107,4 +106,4 @@ require (
 	inet.af/netaddr v0.0.0-20220811202034-502d2d690317 // indirect
 )
 
-replace github.com/omec-project/openapi => github.com/networkgcorefullcode/openapi v1.2.1
+replace github.com/omec-project/openapi => github.com/networkgcorefullcode/openapi v1.6.1
