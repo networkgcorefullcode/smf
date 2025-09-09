@@ -59,20 +59,18 @@ build-docker-image:
     - echo "Build and push of image completed!"
 
   rules:
-    # Caso 1: Merge Request a main
+    # Caso 1: MR a main
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
-      when: always
 
-    # Caso 2: Merge Request a dev
+    # Caso 2: MR a dev
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
-      when: always
 
-    # Caso 3: Push directo a dev
-    - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE != "merge_request_event"'
-      when: always
+    # Caso 3: Push directo a main (NO desde un merge request)
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push" && $CI_MERGE_REQUEST_ID == null'
 
-    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE != "merge_request_event"'
-      when: always
+    # Caso 4: Push directo a dev (NO desde un merge request)
+    - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE == "push" && $CI_MERGE_REQUEST_ID == null'
+
 
   artifacts:
     reports:
@@ -129,16 +127,15 @@ update-helm-values:
       artifacts: true
 
   rules:
-    # Caso 1: Merge Request a main
+    # Caso 1: MR a main
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
 
-
-    # Caso 2: Merge Request a dev
+    # Caso 2: MR a dev
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
 
+    # Caso 3: Push directo a main (NO desde un merge request)
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push" && $CI_MERGE_REQUEST_ID == null'
 
-    # Caso 3: Push directo a dev
-    - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+    # Caso 4: Push directo a dev (NO desde un merge request)
+    - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE == "push" && $CI_MERGE_REQUEST_ID == null'
 
-
-    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE != "merge_request_event"'
