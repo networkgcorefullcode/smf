@@ -88,7 +88,7 @@ tasks:
           .
       - rm -rf vendor
 
-    docker-build-fast:
+  docker-build-fast:
     desc: "Build Docker image for AMF more fasted"
     cmds:
       - go mod vendor
@@ -125,7 +125,7 @@ tasks:
             -covermode=atomic \
             -v \
             ./ ./...
-            
+
   mod-start:
     desc: "execute go mod download to performance the docker build step"
     aliases: [mod]
